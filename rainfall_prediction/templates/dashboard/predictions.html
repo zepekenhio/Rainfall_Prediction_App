@@ -1,0 +1,50 @@
+{% extends 'partials/base.html' %}
+
+{%block title %} List Predictions {%endblock%}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-8">
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Pression</th>
+                        <th scope="col">Temp-Max</th>
+                        <th scope="col">Temperature</th>
+                        <th scope="col">Temp-Min</th>
+                        <th scope="col">Point de Rosée</th>
+                        <th scope="col">Humidité</th>
+                        <th scope="col">Nuage</th>
+                        <th scope="col">Soleil</th>
+                        <th scope="col">Dir du Vent</th>
+                        <th scope="col">Vitess du Vent</th>
+                        <th scope="col">Pluie</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for data in predicted_diabeties%}
+                      <tr>
+                        <th scope="row">{{data.date}}</th>
+                        <td>{{data.pressure}}</td>
+                        <td>{{data.max_temp}}</td>
+                        <td>{{data.temp}}</td>
+                        <td>{{data.min_temp}}</td>
+                        <td>{{data.dewpoint}}</td>
+                        <td>{{data.humidity}}</td>
+                        <td>{{data.cloud}}</td>
+                        <td>{{data.sunshine}}</td>
+                        <td>{{data.wind_direction}}</td>
+                        <td>{{data.wind_speed}}</td>
+                        <td>{{data.rain_fall}}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+
+            </div>
+        </div>
+    </div>
+{%endblock%}
